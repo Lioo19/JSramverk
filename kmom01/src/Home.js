@@ -25,7 +25,7 @@ function Home() {
             Vardagarna består av timmar framför datorn med kod för skolans räkning, en och annan tur i skogen
             (antingen med löparskor eller kängor) och en rätt orimlig mängd brädspel.
             </p>
-            <i>Linnéa Olofsson</i>
+            <i>Linnéa O</i>
         </div>
         <div className="right">
             <Image />
