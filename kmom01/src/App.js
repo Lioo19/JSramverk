@@ -32,11 +32,11 @@ export default function App() {
         </ul>
 
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
           <Route path="/reports">
             <Reports />
+          </Route>
+          <Route exact path="/">
+            <Home />
           </Route>
         </Switch>
       </div>
