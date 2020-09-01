@@ -8,6 +8,7 @@ import {
 
 import { Home } from "./Home.js";
 import { Reports } from "./Report.js";
+import { Login, Register } from "./Login.js";
 
 // Since routes are regular React components, they
 // may be rendered anywhere in the app, including in
@@ -30,9 +31,19 @@ export default function App() {
           <li>
             <Link to="/reports">Rapporter</Link>
           </li>
+          <li>
+            <Link to="/login">Logga in</Link>
+          </li>
+
         </ul>
 
         <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
+          </Route>
           <Route path="/reports">
             <Reports />
           </Route>

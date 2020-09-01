@@ -1,15 +1,10 @@
-import React from "react";
+import React, { Component } from "react";
 import {
   Switch,
   Route,
   Link,
-  useParams,
   useRouteMatch
 } from "react-router-dom";
-
-import { Text1 } from "./reports/Text1.js";
-import { Text2 } from "./reports/Text2.js";
-import { Text3 } from "./reports/Text3.js";
 
 
 function Reports() {
@@ -17,7 +12,6 @@ function Reports() {
   // relative to the parent route, while the `url` lets
   // us build relative links.
   let { path, url } = useRouteMatch();
-
 
   return (
     <div>
@@ -38,40 +32,41 @@ function Reports() {
         <Route exact path={path}>
           <h4>För att läsa en rapport, välj vecka ovan</h4>
         </Route>
-        <Route path={`${path}/week/:ReportId`}>
-          <Report />
+        <Route path={`${path}/week/:ReportId`} component={Report}>
         </Route>
       </Switch>
     </div>
   );
 }
 
-function Report() {
+class Report extends Component {
   // The <Route> that rendered this component has a
   // path of `/Reports/:ReportId`. The `:ReportId` portion
   // of the URL indicates a placeholder that we can
   // get from `useParams()`.
-  let { ReportId } = useParams();
-  let CurrText;
-  switch (ReportId) {
-      case "1":
-      default:
-          CurrText = Text1;
-          break;
-      case "2":
-          CurrText = Text2;
-          break;
-      case "3":
-          CurrText = Text3;
-          break;
+  constructor() {
+      super();
+      this.state = { data: "" };
   }
 
-  return (
-      <div>
-        <h3>{`Rapport för vecka ${ReportId}`}</h3>
-        <CurrText />
-      </div>
-  )
+  componentDidMount() {
+      console.log("mounted");
+      fetch("http://localhost:1337/reports/week/" + this.props.match.params.ReportId)
+          .then(response => response.json())
+          .then(data => {
+              this.setState({ data: data.data.reporttext});
+          });
+  };
+
+
+  render() {
+      return (
+          <div>
+            <h3>{`Rapport för vecka ${this.props.match.params.ReportId}`}</h3>
+            <p>{this.state.data}</p>
+          </div>
+      )
+  }
 }
 
 export { Reports };

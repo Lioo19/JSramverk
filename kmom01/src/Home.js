@@ -21,7 +21,11 @@ class Home extends Component {
       return (
         <div className="fpageDiv">
             <div className="left">
-            {this.state.data}
+            <h2>{this.state.data.h2}</h2>
+            <h4>{this.state.data.h4}</h4>
+            <p>{this.state.data.p1}</p>
+            <p>{this.state.data.p2}</p>
+            <i>{this.state.data.i1}</i>
             </div>
             <div className="right">
                 <Image />
@@ -29,31 +33,7 @@ class Home extends Component {
         </div>
       );
   }
-
 }
-
-// function Home() {
-//     componentDidMount() {
-//         fetch("http://localhost:1337")
-//             .then(response => response.json())
-//             .then(data => {
-//                 var hometext = data.data.msg;
-//                 console.log(hometext);
-//             });
-//     };
-//
-//   return (
-//     <div className="fpageDiv">
-//         <div className="left">
-//         {hometext}
-//         Hejsan
-//         </div>
-//         <div className="right">
-//             <Image />
-//         </div>
-//     </div>
-//   );
-// }
 
 
 function Image() {

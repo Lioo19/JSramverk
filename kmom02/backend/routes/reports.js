@@ -1,15 +1,21 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
+
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database('./db/texts.sqlite');
 
 //SHOULD BE ABLE TO USE DYNAMIC PARAMS FOR REPORT
 router.get("/week/:which", (req, res) => {
-    const data = {
-        data: {
-            //msg returns the :which
-            msg: req.params.which
+    db.each("SELECT reporttext FROM reports WHERE reportnr = " + req.params.which,
+    function(err, row) {
+        console.log(row.reporttext );
+        const data = {
+            data: {
+                reporttext: row.reporttext
+            }
         }
-    };
-    res.json(data);
+        res.json(data);
+    });
 })
 
 router.get('/', function(req, res, next) {
@@ -24,7 +30,7 @@ router.get('/', function(req, res, next) {
 
 
 
-//post route for adding report-data to api. Only possible with active JWT-token
+//post route for adding report-data to api/db. Only possible with active JWT-token
 //Should be possible to use BODYPARSER for putting the correct report for each week?
 //go back to https://jsramverk.se/backend#route-med-dynamiskt-innehall
 router.post("/", (req, res) => {
