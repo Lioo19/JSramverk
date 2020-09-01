@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(cors());
 
 // don't show the log when it is test
-//Morgan works instead of the homemade middleware above.
+// Morgan works instead of the homemade middleware above.
 if (process.env.NODE_ENV !== 'test') {
     // use morgan to log at command line
     app.use(morgan('combined')); // 'combined' outputs the Apache style LOGs

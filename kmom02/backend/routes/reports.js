@@ -25,7 +25,7 @@ router.get('/', function(req, res, next) {
 
 
 //post route for adding report-data to api. Only possible with active JWT-token
-//Shoudl be possible to use BODYPARSER for putting the correct report for each week?
+//Should be possible to use BODYPARSER for putting the correct report for each week?
 //go back to https://jsramverk.se/backend#route-med-dynamiskt-innehall
 router.post("/", (req, res) => {
     res.status(201).json({
