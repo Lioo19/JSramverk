@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import {
-  Switch,
-  Route,
+  Redirect,
   Link,
-  useParams,
-  useRouteMatch
 } from "react-router-dom";
 
-class Login extends Component {
+class Register extends Component {
   constructor() {
       super();
-      this.state = { data: "" };
+      this.state = {
+          email: "",
+          password: "",
+          redirect: null };
   }
 
   submitHandler = (event) => {
@@ -33,7 +33,7 @@ class Login extends Component {
         .then(data => {
             console.log('success, ', data);
             //creates a redirect to login site
-            this.props.history.push('/login');
+            this.setState({ redirect: '/login'});
         })
         .catch((error) => {
             console.error('Error: ', error);
@@ -41,39 +41,44 @@ class Login extends Component {
   };
 
   changeHandler = (event) => {
-      let email = event.target.email;
-      let password = event.target.password;
-      this.setState({[email]: password})
+      let name = event.target.name;
+      let value = event.target.value;
+      this.setState({[name]: value})
   };
 
   render() {
+      if (this.state.redirect) {
+          return <Redirect to={this.state.redirect} />
+      }
       return (
           <main>
-              <h2>Logga In</h2>
-              <ul className="weeks">
-                  <li>
-                      <Link to="register">Registrering</Link>
-                  </li>
-              </ul>
+            <h3>Registrera dig</h3>
+            <ul className="weeks">
+              <li>
+                <Link to="register">Logga in</Link>
+              </li>
+            </ul>
 
             <form onSubmit={this.submitHandler}>
-                <label>Enter email: </label>
+                <p>Enter email: </p>
                 <br/>
                 <input
-                    type='email'
+                    type='text'
                     name='email'
                     required
                     onChange={this.changeHandler}
+                    autoComplete='username'
                 />
                 <br/>
-                <label>Enter Password (minimum 8 characters, 1 number)</label>
+                <p>Enter Password (minimum 8 characters, 1 number)</p>
                 <br/>
                 <input
                     type='password'
                     name='password'
                     required
                     onChange={this.changeHandler}
-                    autoComplete="off"
+                    minLength='8'
+                    autoComplete='current-password'
                 />
                 <br/>
                 <input
@@ -87,4 +92,4 @@ class Login extends Component {
 
 
 
-export { Login };
+export { Register };

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import ReactMarkdown from 'react-markdown';
+
 import {
   Switch,
   Route,
   Link,
   useRouteMatch
 } from "react-router-dom";
-
 
 function Reports() {
   // The `path` lets us build <Route> paths that are
@@ -50,7 +51,6 @@ class Report extends Component {
   }
 
   componentDidMount() {
-      console.log("mounted");
       fetch("http://localhost:1337/reports/week/" + this.props.match.params.ReportId)
           .then(response => response.json())
           .then(data => {
@@ -58,12 +58,22 @@ class Report extends Component {
           });
   };
 
+  componentDidUpdate(prevProps) {
+      if(prevProps.match.params.ReportId !== this.props.match.params.ReportId) {
+          fetch("http://localhost:1337/reports/week/" + this.props.match.params.ReportId)
+              .then(response => response.json())
+              .then(data => {
+                  this.setState({ data: data.data.reporttext});
+              });
+      }
+  }
+
 
   render() {
       return (
           <div>
             <h3>{`Rapport för vecka ${this.props.match.params.ReportId}`}</h3>
-            <p>{this.state.data}</p>
+            <ReactMarkdown source={this.state.data} />
           </div>
       )
   }

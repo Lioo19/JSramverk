@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 
 const index = require('./routes/index');
 const reports = require('./routes/reports');
+const register = require('./routes/register');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -25,6 +26,7 @@ if (process.env.NODE_ENV !== 'test') {
 }
 
 app.use('/reports', reports);
+app.use('/register', register);
 app.use('/', index);
 
 app.use((req, res, next) => {

@@ -87,4 +87,14 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 ");
 
-INSERT INTO reports (reportnr, reporttext) VALUES (2, "#### Github-repo");
+INSERT INTO reports (reportnr, reporttext) VALUES (2, "#### Github-repo
+Finns att hitta här:
+https://github.com/Lioo19/JSramverk/tree/master/kmom01
+
+### To use the API
+run:
+'npm install'
+
+and then
+'npm start'
+");
