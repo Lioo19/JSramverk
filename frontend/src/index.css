@@ -74,6 +74,15 @@ li a:hover {
     text-decoration: underline;
 }
 
+a.edit {
+    padding: 1%;
+    background-color: #d9a566;
+    color: rgb(13,13,13);
+    border-radius: 5%;
+    text-decoration: none;
+    font-weight: 700;
+}
+
 .navBar {
     padding-bottom: 1%;
     border-bottom: 2px groove #fff6e6;
@@ -103,10 +112,6 @@ li a:hover {
     width: 100%;
 }
 
-.content {
-    color: #fff6e6;
-}
-
 .content a {
     color: #d9a566;
 }
@@ -121,6 +126,17 @@ li a:hover {
 
 .content h3 {
     font-size: 2em;
+}
+
+input[type=submit] {
+    margin: 1% 0;
+    padding: 0.5%;
+}
+
+input[type=password],
+input[type=text] {
+    margin: 1% 0;
+    padding: 0.5% 5% 0.5% 0.5%;
 }
 
 @media screen and (max-width: 1000px) {

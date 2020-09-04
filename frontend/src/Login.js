@@ -61,7 +61,7 @@ class Login extends Component {
       return (
           <main>
               <h2>Logga In</h2>
-              <p>{this.state.msg}</p>
+              <p className={"infomsg"}>{this.state.msg}</p>
               <form onSubmit={this.submitHandler}>
                   <label>Enter email </label>
                   <br/>
@@ -87,7 +87,9 @@ class Login extends Component {
                       type='submit'
                   />
               </form>
+              <div className={"content"}>
                 <Link to="register">Registrering</Link>
+              </div>
           </main>
       );
   }

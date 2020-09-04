@@ -64,7 +64,7 @@ class Edit extends Component {
             <main>
                 <h3>Uppdatera</h3>
                 <p>Här kan du editera din rapport.</p>
-                <p>{this.state.msg}</p>
+                <p className={"infomsg"}>{this.state.msg}</p>
 
                 <form onSubmit={this.submitHandler}>
                 <label htmlFor="reportId" >RapportID</label>

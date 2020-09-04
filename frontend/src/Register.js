@@ -80,7 +80,9 @@ class Register extends Component {
                     type='submit'
                 />
             </form>
-              <Link to="login">Logga in</Link>
+                <div className={"content"}>
+                    <Link to="login">Logga in</Link>
+                </div>
           </main>
       );
   }

@@ -56,7 +56,7 @@ class Newpost extends Component {
                 <main>
                     <h2>Ny Rapport</h2>
                     <p>Här kan du skapa en ny rapport. Glöm inte att fylla i rapportID</p>
-                    <p>{this.state.msg}</p>
+                    <p className={"infomsg"}>{this.state.msg}</p>
                     <form onSubmit={this.submitHandler}>
                         <label htmlFor="reportId" >RapportID</label>
                         <br/>

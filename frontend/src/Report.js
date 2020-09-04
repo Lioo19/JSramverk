@@ -89,15 +89,17 @@ class Report extends Component {
   render() {
       if (auth.token) {
           return (
-              <div>
-                <Link className={"edit"} to={`/reports/edit/${this.props.match.params.ReportId}`}>Editera</Link>
-                <h3>{`Rapport för vecka ${this.props.match.params.ReportId}`}</h3>
-                <ReactMarkdown source={this.state.data} />
-              </div>
+              <main>
+                  <Link className={"edit"} to={`/reports/edit/${this.props.match.params.ReportId}`}>Editera</Link>
+                  <div className={"content"} >
+                    <h3>{`Rapport för vecka ${this.props.match.params.ReportId}`}</h3>
+                    <ReactMarkdown source={this.state.data} />
+                  </div>
+              </main>
           )
       }
       return (
-          <div>
+          <div className={"content"} >
             <h3>{`Rapport för vecka ${this.props.match.params.ReportId}`}</h3>
             <ReactMarkdown source={this.state.data} />
           </div>
