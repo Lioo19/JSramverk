@@ -69,7 +69,7 @@ class Report extends Component {
   }
 
   componentDidMount() {
-      fetch("http://localhost:1337/reports/week/" + this.props.match.params.ReportId)
+      fetch("https://me-api.linneaolofsson.me/reports/week/" + this.props.match.params.ReportId)
           .then(response => response.json())
           .then(data => {
               this.setState({ data: data.data.reporttext});
@@ -78,7 +78,7 @@ class Report extends Component {
 
   componentDidUpdate(prevProps) {
       if(prevProps.match.params.ReportId !== this.props.match.params.ReportId) {
-          fetch("http://localhost:1337/reports/week/" + this.props.match.params.ReportId)
+          fetch("https://me-api.linneaolofsson.me/reports/week/" + this.props.match.params.ReportId)
               .then(response => response.json())
               .then(data => {
                   this.setState({ data: data.data.reporttext});

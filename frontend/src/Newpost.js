@@ -15,7 +15,7 @@ class Newpost extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        const url = 'http://localhost:1337/reports/';
+        const url = 'https://me-api.linneaolofsson.me/reports/';
 
         let payload={
             'reportId': this.state.reportId,

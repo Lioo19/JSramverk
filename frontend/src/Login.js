@@ -19,7 +19,7 @@ class Login extends Component {
 
   submitHandler = (event) => {
       event.preventDefault();
-      const url = 'http://localhost:1337/login/';
+      const url = 'https://me-api.linneaolofsson.me/login/';
 
       let payload={
           'email': this.state.email,

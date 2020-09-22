@@ -15,7 +15,7 @@ class Register extends Component {
 
   submitHandler = (event) => {
       event.preventDefault();
-      const url = 'http://localhost:1337/register/';
+      const url = 'https://me-api.linneaolofsson.me/register/';
 
       let payload={
           'email': this.state.email,

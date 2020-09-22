@@ -14,7 +14,7 @@ class Edit extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:1337/reports/week/" + this.props.match.params.ReportId)
+        fetch("https://me-api.linneaolofsson.me/reports/week/" + this.props.match.params.ReportId)
             .then(response => response.json())
             .then(data => {
                 this.setState({ rtext: data.data.reporttext });
@@ -24,7 +24,7 @@ class Edit extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        const url = `http://localhost:1337/reports/edit/${this.state.reportId}`;
+        const url = `https://me-api.linneaolofsson.me/reports/edit/${this.state.reportId}`;
 
         let payload={
             'rtext': this.state.rtext,

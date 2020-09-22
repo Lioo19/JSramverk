@@ -15,7 +15,7 @@ import { Register } from "./Register.js";
 // Since routes are regular React components, they
 // may be rendered anywhere in the app, including in
 // child elements.
-//
+
 // This helps when it's time to code-split your app
 // into multiple bundles because code-splitting a
 // React Router app is the same as code-splitting

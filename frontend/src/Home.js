@@ -9,7 +9,7 @@ class Home extends Component {
   }
 
   componentDidMount() {
-      fetch("http://localhost:1337")
+      fetch("https://me-api.linneaolofsson.me/")
           .then(response => response.json())
           .then(data => {
               this.setState({ data: data.data.msg});
