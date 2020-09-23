@@ -12,7 +12,7 @@ const baseURL = "https://me.linneaolofsson.me/";
 // Test suite
 test.describe("Testing me-page", function() {
     test.beforeEach(function(done) {
-        this.timeout(30000);
+        this.timeout(50000);
         browser = new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.firefox()).build();
 

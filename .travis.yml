@@ -7,8 +7,6 @@ node_js:
     - "10"
     - "8"
 
-sudo: false
-
 git:
     submodules: false
 
