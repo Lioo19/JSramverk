@@ -7,7 +7,9 @@ const By = webdriver.By;
 
 let browser;
 
-const baseURL = "https://me.linneaolofsson.me/";
+const baseUrl = process.env.NODE_ENV === "development"
+    ? "http://localhost:8333"
+    : "https://me-api.linneaolofsson.me";
 
 // Test suite
 test.describe("Testing me-page", function() {
@@ -46,10 +48,9 @@ test.describe("Testing me-page", function() {
         });
     }
 
-
-
     // Test case for index page, checking title, that the headline exists and that url is correct
     test.it("Test index", function(done) {
+        console.log(process.env.NODE_ENV);
         let promise = browser.getTitle();
 
         promise.then(function(title) {
@@ -81,7 +82,6 @@ test.describe("Testing me-page", function() {
 
         done();
     });
-
 
 
     test.it("Test go to Rapport week 1", function(done) {

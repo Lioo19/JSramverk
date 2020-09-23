@@ -15,14 +15,17 @@ class Newpost extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        const url = 'https://me-api.linneaolofsson.me/reports/';
+        const baseURL = process.env.NODE_ENV === "development"
+            ? "http://localhost:8333/reports"
+            : "https://me-api.linneaolofsson.me/reports";
+
 
         let payload={
             'reportId': this.state.reportId,
             'rtext': this.state.rtext
         }
 
-        fetch(url, {
+        fetch(baseURL, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

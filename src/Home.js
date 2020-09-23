@@ -9,7 +9,11 @@ class Home extends Component {
   }
 
   componentDidMount() {
-      fetch("https://me-api.linneaolofsson.me/")
+      const baseURL = process.env.NODE_ENV === "development"
+          ? "http://localhost:8333"
+          : "https://me-api.linneaolofsson.me";
+
+      fetch(baseURL)
           .then(response => response.json())
           .then(data => {
               this.setState({ data: data.data.msg});

@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 import { auth } from "./Auth.js";
 
+const baseURL = process.env.NODE_ENV === "development"
+    ? "http://localhost:8333/reports"
+    : "https://me-api.linneaolofsson.me/reports";
+
 class Edit extends Component {
     constructor() {
         super();
@@ -14,7 +18,7 @@ class Edit extends Component {
     }
 
     componentDidMount() {
-        fetch("https://me-api.linneaolofsson.me/reports/week/" + this.props.match.params.ReportId)
+        fetch(baseUrl + "/week/" + this.props.match.params.ReportId)
             .then(response => response.json())
             .then(data => {
                 this.setState({ rtext: data.data.reporttext });
@@ -24,7 +28,7 @@ class Edit extends Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        const url = `https://me-api.linneaolofsson.me/reports/edit/${this.state.reportId}`;
+        const url = `${baseURL}/edit/${this.state.reportId}`;
 
         let payload={
             'rtext': this.state.rtext,

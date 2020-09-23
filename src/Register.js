@@ -15,14 +15,16 @@ class Register extends Component {
 
   submitHandler = (event) => {
       event.preventDefault();
-      const url = 'https://me-api.linneaolofsson.me/register/';
+      const baseURL = process.env.NODE_ENV === "development"
+          ? "http://localhost:8333/register"
+          : "https://me-api.linneaolofsson.me/register";
 
       let payload={
           'email': this.state.email,
           'password': this.state.password
       }
 
-      fetch(url, {
+      fetch(baseURL, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

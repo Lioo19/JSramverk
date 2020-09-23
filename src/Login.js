@@ -19,14 +19,16 @@ class Login extends Component {
 
   submitHandler = (event) => {
       event.preventDefault();
-      const url = 'https://me-api.linneaolofsson.me/login/';
+      const baseURL = process.env.NODE_ENV === "development"
+          ? "http://localhost:8333/login"
+          : "https://me-api.linneaolofsson.me/login";
 
       let payload={
           'email': this.state.email,
           'password': this.state.password
       }
 
-      fetch(url, {
+      fetch(baseURL, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

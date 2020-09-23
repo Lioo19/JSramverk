@@ -12,6 +12,10 @@ import { Edit } from "./Edit.js";
 import { Newpost } from "./Newpost.js";
 import { auth } from "./Auth.js";
 
+const baseURL = process.env.NODE_ENV === "development"
+    ? "http://localhost:8333/reports/week/"
+    : "https://me-api.linneaolofsson.me/reports/week/";
+
 
 function Reports() {
   // The `path` lets us build <Route> paths that are
@@ -69,7 +73,7 @@ class Report extends Component {
   }
 
   componentDidMount() {
-      fetch("https://me-api.linneaolofsson.me/reports/week/" + this.props.match.params.ReportId)
+      fetch(baseURL + this.props.match.params.ReportId)
           .then(response => response.json())
           .then(data => {
               this.setState({ data: data.data.reporttext});
@@ -78,7 +82,7 @@ class Report extends Component {
 
   componentDidUpdate(prevProps) {
       if(prevProps.match.params.ReportId !== this.props.match.params.ReportId) {
-          fetch("https://me-api.linneaolofsson.me/reports/week/" + this.props.match.params.ReportId)
+          fetch(baseURL + this.props.match.params.ReportId)
               .then(response => response.json())
               .then(data => {
                   this.setState({ data: data.data.reporttext});
