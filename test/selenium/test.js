@@ -33,6 +33,8 @@ test.describe("Testing me-page", function() {
         this.timeout(50000);
         browser = new webdriver.Builder().
             withCapabilities(webdriver.Capabilities.firefox())
+            .setFirefoxOptions(new firefox.Options().headless())
+            .forBrowser('firefox')
             .build();
 
         browser.get("https://me.linneaolofsson.me/");
@@ -49,19 +51,21 @@ test.describe("Testing me-page", function() {
 
     // Test case for index page, checking title, that the headline exists and that url is correct
     test.it("Test index", function(done) {
-        // let promise = browser.getTitle();
+        let promise = browser.getTitle();
 
-        // promise.then(function(title) {
-        //     assert.equal(title, "React App");
-        // });
+        promise.then(function(title) {
+            assert.equal(title, "React App");
+        });
 
         browser.getTitle()
             .then(function(title) {
                 assert.equal(title, "React App");
-        }).then(function() {
-            assertH2("ME-SIDA FÖR JSRAMVERK");
-            matchUrl(baseURL);
-        }).then(() => done());
+        });
+
+        assertH2("ME-SIDA FÖR JSRAMVERK");
+        matchUrl(baseURL);
+
+        done();
     });
 
 
