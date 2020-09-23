@@ -13,10 +13,15 @@ const baseUrl = process.env.NODE_ENV === "development"
 
 // Test suite
 test.describe("Testing me-page", function() {
+    this.timeout(50000);
+
     test.beforeEach(function(done) {
-        this.timeout(50000);
+
         browser = new webdriver.Builder().
-            withCapabilities(webdriver.Capabilities.firefox()).build();
+            withCapabilities(webdriver.Capabilities.firefox())
+            .setFirefoxOptions(new firefox.Options().headless())
+            .forBrowser('firefox')
+            .build();
 
         browser.get("https://me.linneaolofsson.me/");
         done();
