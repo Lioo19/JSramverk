@@ -13,9 +13,16 @@ git:
     submodules: false
 
 addons:
-    firefox: "49.0.2"
+    firefox: "60.0.1"
 
-before_script:
+before_install:
+    - wget https://github.com/mozilla/geckodriver/releases/download/v0.11.1/geckodriver-v0.11.1-linux64.tar.gz
+    - mkdir geckodriver
+    - tar -xzf geckodriver-v0.11.1-linux64.tar.gz -C geckodriver
+    - export PATH=$PATH:$PWD/geckodriver
+
+install:
+    - npm install selenium-webdriver@^3.0.0
     - npm install
 
 script:
