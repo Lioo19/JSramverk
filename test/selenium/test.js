@@ -7,21 +7,14 @@ const By = webdriver.By;
 
 let browser;
 
-const baseUrl = process.env.NODE_ENV === "development"
-    ? "http://localhost:8333"
-    : "https://me-api.linneaolofsson.me";
-
 // Test suite
 test.describe("Testing me-page", function() {
-    this.timeout(50000);
+    const baseURL = "https://me.linneaolofsson.me/";
 
     test.beforeEach(function(done) {
-
+        this.timeout(50000);
         browser = new webdriver.Builder().
-            withCapabilities(webdriver.Capabilities.firefox())
-            .setFirefoxOptions(new firefox.Options().headless())
-            .forBrowser('firefox')
-            .build();
+            withCapabilities(webdriver.Capabilities.firefox()).build();
 
         browser.get("https://me.linneaolofsson.me/");
         done();
@@ -55,7 +48,6 @@ test.describe("Testing me-page", function() {
 
     // Test case for index page, checking title, that the headline exists and that url is correct
     test.it("Test index", function(done) {
-        console.log(process.env.NODE_ENV);
         let promise = browser.getTitle();
 
         promise.then(function(title) {
