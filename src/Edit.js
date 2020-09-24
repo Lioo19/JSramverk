@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { auth } from "./Auth.js";
 
 const baseURL = process.env.NODE_ENV === "development"
-    ? "http://localhost:8333/reports"
+    ? "http://localhost:1337/reports"
     : "https://me-api.linneaolofsson.me/reports";
 
 class Edit extends Component {

@@ -20,7 +20,7 @@ class Login extends Component {
   submitHandler = (event) => {
       event.preventDefault();
       const baseURL = process.env.NODE_ENV === "development"
-          ? "http://localhost:8333/login"
+          ? "http://localhost:1337/login"
           : "https://me-api.linneaolofsson.me/login";
 
       let payload={

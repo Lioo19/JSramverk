@@ -16,7 +16,7 @@ class Register extends Component {
   submitHandler = (event) => {
       event.preventDefault();
       const baseURL = process.env.NODE_ENV === "development"
-          ? "http://localhost:8333/register"
+          ? "http://localhost:1337/register"
           : "https://me-api.linneaolofsson.me/register";
 
       let payload={

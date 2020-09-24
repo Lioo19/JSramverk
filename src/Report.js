@@ -13,7 +13,7 @@ import { Newpost } from "./Newpost.js";
 import { auth } from "./Auth.js";
 
 const baseURL = process.env.NODE_ENV === "development"
-    ? "http://localhost:8333/reports/week/"
+    ? "http://localhost:1337/reports/week/"
     : "https://me-api.linneaolofsson.me/reports/week/";
 
 

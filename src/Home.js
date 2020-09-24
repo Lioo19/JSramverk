@@ -9,8 +9,10 @@ class Home extends Component {
   }
 
   componentDidMount() {
+      console.log("this is process.env");
+      console.log(process.env);
       const baseURL = process.env.NODE_ENV === "development"
-          ? "http://localhost:8333"
+          ? "http://localhost:1337"
           : "https://me-api.linneaolofsson.me";
 
       fetch(baseURL)

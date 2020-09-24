@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/Lioo19/JSramverk.svg?branch=master)](https://travis-ci.org/Lioo19/JSramverk)
+
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Lioo19/JSramverk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Lioo19/JSramverk/?branch=master)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
