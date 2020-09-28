@@ -6,11 +6,12 @@ import {
   Link,
 } from "react-router-dom";
 
-import { Home } from "./Home.js";
-import { Reports } from "./Report.js";
-import { Newpost } from "./Newpost.js";
-import { Login } from "./Login.js";
-import { Register } from "./Register.js";
+import { Home } from "./components/Home.js";
+import { Reports } from "./components/Report.js";
+import { Newpost } from "./components/Newpost.js";
+import { Login } from "./components/Login.js";
+import { Register } from "./components/Register.js";
+import { Chat } from "./components/Chat.js";
 
 // Since routes are regular React components, they
 // may be rendered anywhere in the app, including in
@@ -34,6 +35,9 @@ export default function App() {
             <Link to="/reports">Rapporter</Link>
           </li>
           <li>
+            <Link to="/chat">Chatt</Link>
+          </li>
+          <li>
             <Link to="/login">Logga in</Link>
           </li>
           <li>
@@ -53,6 +57,9 @@ export default function App() {
           </Route>
           <Route path="/reports">
             <Reports />
+          </Route>
+          <Route path="/chat">
+            <Chat />
           </Route>
           <Route exact path="/">
             <Home />

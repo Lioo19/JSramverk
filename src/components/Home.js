@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import frontimg from "./frontimg.jpg";
+import frontimg from "../frontimg.jpg";
 
 class Home extends Component {
   constructor() {
@@ -9,8 +9,6 @@ class Home extends Component {
   }
 
   componentDidMount() {
-      console.log("this is process.env");
-      console.log(process.env);
       const baseURL = process.env.NODE_ENV === "development"
           ? "http://localhost:1337"
           : "https://me-api.linneaolofsson.me";

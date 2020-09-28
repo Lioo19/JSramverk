@@ -10,7 +10,8 @@ class Register extends Component {
       this.state = {
           email: "",
           password: "",
-          redirect: null };
+          redirect: null
+      };
   }
 
   submitHandler = (event) => {

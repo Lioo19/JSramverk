@@ -48,6 +48,7 @@ h4 {
     font-size: 1.5rem;
 }
 
+
 p {
     font-size: 1.2em;
     font-weight: normal;
@@ -137,6 +138,26 @@ input[type=password],
 input[type=text] {
     margin: 1% 0;
     padding: 0.5% 5% 0.5% 0.5%;
+}
+
+/* CHAT */
+
+#all_msg {
+    border: 1px solid #db823B;
+    padding: 5%;
+    margin-bottom: 2%;
+}
+
+.msg_text {
+    margin: 2% 0 2% 5%;
+}
+
+.chaterror {
+    color: red;
+}
+
+.smalli {
+    font-size: 80%;
 }
 
 @media screen and (max-width: 1000px) {
