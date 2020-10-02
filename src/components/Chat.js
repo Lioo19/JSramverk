@@ -158,7 +158,7 @@ class Chat extends Component {
                     }
                 </div>
                 <form>
-                    <label htmlFor="user">Namn</label>
+                    <label htmlFor="user">Användarnamn</label>
                     <br/>
                     <input
                         type="text"
@@ -187,7 +187,7 @@ class Chat extends Component {
                         id="new_msg"
                     />
                 </form>
-                <i>Observera att chattmeddelandena sparas med ditt namn och meddelande</i>
+                <i>Observera att chattmeddelandena sparas med ditt användarnamn och meddelande</i>
             </main>
         )
     }

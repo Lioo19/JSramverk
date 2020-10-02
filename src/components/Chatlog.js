@@ -15,12 +15,11 @@ class Chatlog extends Component {
             allMsgs: [],
             redirect: null
         };
-
         this.socket = io(baseURL);
+        this.socket.emit("chatLogRequest", "send");
     }
 
     componentDidMount() {
-        this.socket.emit("chatLogRequest", "send");
         this.socket.on("chatLogConfirmed", function (log) {
             addLog(log);
         });
