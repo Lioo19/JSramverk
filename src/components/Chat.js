@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 import io from "socket.io-client";
 
@@ -14,7 +15,8 @@ class Chat extends Component {
             error: "",
             msg: "",
             prevUser: "",
-            allMsgs: []
+            allMsgs: [],
+            redirect: null
         };
 
         this.socket = io(baseURL);
@@ -25,9 +27,9 @@ class Chat extends Component {
             addMessage(message);
         });
 
-        this.socket.on("allMsgs", function (message) {
-            this.setState ({ allMsgs: message });
-        });
+        // this.socket.on("allMsgs", function (message) {
+        //     this.setState ({ allMsgs: message });
+        // });
 
         //adds new message to log of all messages
         const addMessage = message => {
@@ -113,10 +115,16 @@ class Chat extends Component {
          this.setState({ msg: event.target.value})
     }
 
+    chatlogredirect = (event) => {
+        this.setState({ redirect: '/chatlog'})
+    }
+
     //on update, adjust the window with scrolling to latest message
     componentDidUpdate() {
-        let update = document.getElementById("all_msg");
-        update.scrollTop = update.scrollHeight;
+        if (this.state.redirect === null) {
+            let update = document.getElementById("all_msg");
+            update.scrollTop = update.scrollHeight;
+        }
     }
 
     //When leaving, disconnect the chat.
@@ -124,12 +132,19 @@ class Chat extends Component {
         this.socket.disconnect();
     }
 
-
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+        }
         return (
             <main>
                 <h2>Chatt</h2>
                 <p>Sugen på att chatta? Fyll i ditt namn och sätt igång!</p>
+                <div>
+                    <p>
+                    <button className="chatbutton" onClick={this.chatlogredirect}>Chattlog</button>
+                    </p>
+                </div>
                 <div id="all_msg">
                     {
                         this.state.allMsgs.map((msg, key) => {
@@ -172,6 +187,7 @@ class Chat extends Component {
                         id="new_msg"
                     />
                 </form>
+                <i>Observera att chattmeddelandena sparas med ditt namn och meddelande</i>
             </main>
         )
     }

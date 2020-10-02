@@ -12,6 +12,7 @@ import { Newpost } from "./components/Newpost.js";
 import { Login } from "./components/Login.js";
 import { Register } from "./components/Register.js";
 import { Chat } from "./components/Chat.js";
+import { Chatlog } from "./components/Chatlog.js";
 
 // Since routes are regular React components, they
 // may be rendered anywhere in the app, including in
@@ -60,6 +61,9 @@ export default function App() {
           </Route>
           <Route path="/chat">
             <Chat />
+          </Route>
+          <Route path="/chatlog">
+            <Chatlog />
           </Route>
           <Route exact path="/">
             <Home />

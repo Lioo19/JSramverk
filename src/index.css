@@ -160,6 +160,16 @@ input[type=text] {
     font-size: 80%;
 }
 
+.chatbutton {
+    margin-left: 88.3%;
+    background-color: transparent;
+    color: #d9a566;
+    border: 1px solid #d9a566;
+    padding: 1%;
+    font-size: 80%;
+    text-decoration: underline;
+}
+
 @media screen and (max-width: 1000px) {
     .fpageDiv {
         flex-direction: column;
