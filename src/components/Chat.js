@@ -27,9 +27,9 @@ class Chat extends Component {
             addMessage(message);
         });
 
-        // this.socket.on("allMsgs", function (message) {
-        //     this.setState ({ allMsgs: message });
-        // });
+        this.socket.on("allMsgs", function (message) {
+            this.setState ({ allMsgs: message });
+        });
 
         //adds new message to log of all messages
         const addMessage = message => {
@@ -187,7 +187,9 @@ class Chat extends Component {
                         id="new_msg"
                     />
                 </form>
-                <i>Observera att chattmeddelandena sparas med ditt användarnamn och meddelande</i>
+                <div>
+                    <i>Observera att chattmeddelandena sparas med ditt användarnamn och meddelande</i>
+                </div>
             </main>
         )
     }
